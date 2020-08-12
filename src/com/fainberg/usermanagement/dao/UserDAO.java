@@ -18,7 +18,7 @@ import com.fainberg.usermanagement.model.User;
  */
 public class UserDAO {
 	
-    private String jdbcURL = "jdbc:mysql://localhost:3306/java_demo?useSSL=false";
+    private String jdbcURL = "jdbc:mysql://localhost:3306/java_demo?useSSL=false&useUnicode=true&serverTimezone=UTC";  
     private String jdbcUsername = "root";
     private String jdbcPassword = "trEv0r11";
 
@@ -35,7 +35,7 @@ public class UserDAO {
     protected Connection getConnection() {
         Connection connection = null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
         } catch (SQLException e) {
             // TODO Auto-generated catch block
